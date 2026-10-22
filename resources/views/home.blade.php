@@ -19,7 +19,7 @@
                             <span class="text-muted">Total Karyawan</span>
                             <span class="badge text-bg-primary">Live</span>
                         </div>
-                        <h3 class="mb-0">120</h3>
+                        <h3 class="mb-0">{{ $totalKaryawan }}</h3>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                             <span class="text-muted">Divisi Aktif</span>
                             <span class="badge text-bg-success">Ready</span>
                         </div>
-                        <h3 class="mb-0">8</h3>
+                        <h3 class="mb-0">{{ $divisiAktif }}</h3>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                             <span class="text-muted">Rata-rata Gaji</span>
                             <span class="badge text-bg-warning">Update</span>
                         </div>
-                        <h3 class="mb-0">Rp 7.5Jt</h3>
+                        <h3 class="mb-0">Rp {{ number_format((float) $rataRataGaji, 0, ',', '.') }}</h3>
                     </div>
                 </div>
             </div>
