@@ -9,6 +9,7 @@
             <p class="card-text"><strong>Jabatan:</strong> {{ $karyawan->jabatan }}</p>
             <p class="card-text"><strong>Gaji:</strong> {{ $karyawan->gaji_rupiah }}</p>
             <p class="card-text"><strong>Divisi:</strong> {{ $karyawan->divisi }}</p>
+            <p class="card-text"><strong>Keterangan:</strong> {{ $karyawan->keterangan }}</p>
             <a href="{{ route('karyawan.index') }}" class="btn btn-primary">Kembali</a>
         </div>
     </div>
