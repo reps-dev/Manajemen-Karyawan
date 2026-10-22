@@ -6,15 +6,36 @@
             {{ session('success') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+    @endsession
+
     <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-3">
         <a href="{{ route('karyawan.create') }}" class="btn btn-primary">Tambah Karyawan</a>
 
-        <form action="{{ route('karyawan.index') }}" method="GET" class="d-flex gap-2 align-items-center">
+        <form action="{{ route('karyawan.index') }}" method="GET" class="d-flex gap-2 align-items-center flex-wrap">
+            <input type="hidden" name="sort" value="{{ $sort ?? 'id_desc' }}">
             <input type="text" name="search" class="form-control" value="{{ request('search') }}" placeholder="Cari karyawan..." aria-label="Cari karyawan">
             <button type="submit" class="btn btn-outline-primary">Cari</button>
             @if (request('search'))
                 <a href="{{ route('karyawan.index') }}" class="btn btn-outline-secondary">Reset</a>
             @endif
+        </form>
+    </div>
+
+    <div class="mb-3 d-flex justify-content-end">
+        <form action="{{ route('karyawan.index') }}" method="GET" class="d-flex align-items-center gap-2">
+            @if (request('search'))
+                <input type="hidden" name="search" value="{{ request('search') }}">
+            @endif
+            <label for="sort" class="form-label mb-0">Urutkan:</label>
+            <select name="sort" id="sort" class="form-select" onchange="this.form.submit()">
+                <option value="id_desc" {{ $sort === 'id_desc' ? 'selected' : '' }}>Terbaru</option>
+                <option value="nama_asc" {{ $sort === 'nama_asc' ? 'selected' : '' }}>Nama A-Z</option>
+                <option value="nama_desc" {{ $sort === 'nama_desc' ? 'selected' : '' }}>Nama Z-A</option>
+                <option value="gaji_asc" {{ $sort === 'gaji_asc' ? 'selected' : '' }}>Gaji Terendah</option>
+                <option value="gaji_desc" {{ $sort === 'gaji_desc' ? 'selected' : '' }}>Gaji Tertinggi</option>
+                <option value="nip_asc" {{ $sort === 'nip_asc' ? 'selected' : '' }}>NIP A-Z</option>
+                <option value="nip_desc" {{ $sort === 'nip_desc' ? 'selected' : '' }}>NIP Z-A</option>
+            </select>
         </form>
     </div>
 

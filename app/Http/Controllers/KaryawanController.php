@@ -13,20 +13,33 @@ class KaryawanController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
+        $sort = $request->input('sort', 'id_desc');
 
-        $karyawans = Karyawan::query()
-            ->when($search, function ($query, $search) {
-                $query->where('nama', 'like', "%{$search}%")
+        $query = Karyawan::query();
+
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('nama', 'like', "%{$search}%")
                     ->orWhere('nip', 'like', "%{$search}%")
                     ->orWhere('jabatan', 'like', "%{$search}%")
                     ->orWhere('divisi', 'like', "%{$search}%")
                     ->orWhere('gaji', 'like', "%{$search}%");
-            })
-            ->orderBy('id', 'desc')
-            ->paginate(10)
-            ->appends(['search' => $search]);
+            });
+        }
 
-        return view('karyawan.index', compact('karyawans', 'search'));
+        match ($sort) {
+            'nama_asc' => $query->orderBy('nama', 'asc'),
+            'nama_desc' => $query->orderBy('nama', 'desc'),
+            'gaji_asc' => $query->orderBy('gaji', 'asc'),
+            'gaji_desc' => $query->orderBy('gaji', 'desc'),
+            'nip_asc' => $query->orderBy('nip', 'asc'),
+            'nip_desc' => $query->orderBy('nip', 'desc'),
+            default => $query->orderBy('id', 'desc'),
+        };
+
+        $karyawans = $query->paginate(10)->appends(['search' => $search, 'sort' => $sort]);
+
+        return view('karyawan.index', compact('karyawans', 'search', 'sort'));
     }
 
     /**
