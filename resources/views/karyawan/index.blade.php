@@ -1,7 +1,18 @@
 @extends('layouts.main')
 @section('content')
     <h1>Daftar Karyawan</h1>
-    <a href="{{ route('karyawan.create') }}" class="btn btn-primary mb-3">Tambah Karyawan</a>
+
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-3">
+        <a href="{{ route('karyawan.create') }}" class="btn btn-primary">Tambah Karyawan</a>
+
+        <form action="{{ route('karyawan.index') }}" method="GET" class="d-flex gap-2 align-items-center">
+            <input type="text" name="search" class="form-control" value="{{ request('search') }}" placeholder="Cari karyawan..." aria-label="Cari karyawan">
+            <button type="submit" class="btn btn-outline-primary">Cari</button>
+            @if (request('search'))
+                <a href="{{ route('karyawan.index') }}" class="btn btn-outline-secondary">Reset</a>
+            @endif
+        </form>
+    </div>
 
     <div class="table-responsive">
         <table class="table table-bordered table-striped align-middle">
