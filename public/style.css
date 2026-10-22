@@ -68,8 +68,13 @@ body {
 
 .main-content {
     flex: 1;
-    padding: 1rem 2rem 5rem;
+    padding: 1.5rem 2rem 5rem 2.5rem;
     background: #f3f4f6;
+    margin-left: 0;
+}
+
+.main-content > *:first-child {
+    margin-top: 0.25rem;
 }
 
 .home-page {
