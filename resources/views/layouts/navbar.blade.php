@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark bg-dark sidebar-nav shadow-sm" aria-label="Sidebar navigation">
-    <div class="d-flex align-items-center justify-content-space-between w-100 mb-4">
+    <div class="d-flex align-items-center justify-content-space-between w-100 mb-0">
         <a class="navbar-brand fw-bold mb-0" href="/">Karyawan</a>
     </div>
 

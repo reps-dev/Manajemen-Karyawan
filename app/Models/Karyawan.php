@@ -29,4 +29,11 @@ class Karyawan extends Model
     {
         return 'Rp ' . number_format((float) $this->gaji, 0, ',', '.');
     }
+
+    public function setGajiAttribute($value): void
+    {
+        $this->attributes['gaji'] = is_null($value)
+            ? null
+            : (int) preg_replace('/[^0-9]/', '', (string) $value);
+    }
 }

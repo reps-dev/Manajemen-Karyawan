@@ -34,7 +34,7 @@
                         <td>{{ $karyawan->nip}}</td>
                         <td>{{ $karyawan->nama }}</td>
                         <td>{{ $karyawan->jabatan }}</td>
-                        <td>{{ $karyawan->gaji }}</td>
+                        <td>{{ $karyawan->gaji_rupiah }}</td>
                         <td>{{ $karyawan->divisi }}</td>
                         <td>
                             <a href="{{ route('karyawan.show', $karyawan->id) }}" class="btn btn-info btn-sm">Detail</a>

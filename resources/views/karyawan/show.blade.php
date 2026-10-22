@@ -7,7 +7,7 @@
             <h5 class="card-title"><strong>Nama :</strong> {{ $karyawan->nama }}</h5>
             <p class="card-text"><strong>NIP:</strong> {{ $karyawan->nip }}</p>
             <p class="card-text"><strong>Jabatan:</strong> {{ $karyawan->jabatan }}</p>
-            <p class="card-text"><strong>Gaji: RP.</strong> {{ $karyawan->gaji }}</p>
+            <p class="card-text"><strong>Gaji:</strong> {{ $karyawan->gaji_rupiah }}</p>
             <p class="card-text"><strong>Divisi:</strong> {{ $karyawan->divisi }}</p>
             <a href="{{ route('karyawan.index') }}" class="btn btn-primary">Kembali</a>
         </div>
