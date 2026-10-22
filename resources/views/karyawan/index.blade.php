@@ -1,7 +1,11 @@
 @extends('layouts.main')
 @section('content')
     <h1>Daftar Karyawan</h1>
-
+    @session('success')
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-3">
         <a href="{{ route('karyawan.create') }}" class="btn btn-primary">Tambah Karyawan</a>
 
