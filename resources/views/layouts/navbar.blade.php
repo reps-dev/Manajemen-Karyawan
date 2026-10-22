@@ -9,8 +9,8 @@
         <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ms-auto">
                 <x-nav-item label="Home" href="/" :active="request()->is('/')" />
-                <x-nav-item label="Data Karyawan" href="#" :active="request()->is('karyawan*')" />
-                <x-nav-item label="Tambah Karyawan" href="#" :active="request()->is('karyawan/create')" />
+                <x-nav-item label="Data Karyawan" href="{{ route('karyawan.index') }}" :active="request()->is('karyawan*')" />
+                <x-nav-item label="Tambah Karyawan" href="{{ route('karyawan.create') }}" :active="request()->is('karyawan/create')" />
             </ul>
         </div>
     </div>
