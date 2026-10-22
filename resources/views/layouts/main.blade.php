@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
 <body>
-    <div class="app-shell d-flex">
+    <div class="app-shell d-flex align-items-stretch">
         @include('layouts.navbar')
 
-        <main class="container mt-4 flex-grow-1">
+        <main class="main-content flex-grow-1">
             @yield('content')
         </main>
     </div>
