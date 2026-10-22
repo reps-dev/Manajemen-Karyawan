@@ -24,6 +24,7 @@
                     <td>{{ $karyawan->gaji }}</td>
                     <td>{{ $karyawan->divisi }}</td>
                     <td>
+                        <a href="{{ route('karyawan.show', $karyawan->id) }}" class="btn btn-info btn-sm">Detail</a>
                         <a href="{{ route('karyawan.edit', $karyawan->id) }}" class="btn btn-warning btn-sm">Edit</a>
                         <form action="{{ route('karyawan.destroy', $karyawan->id) }}" method="POST" style="display: inline-block;">
                             @csrf

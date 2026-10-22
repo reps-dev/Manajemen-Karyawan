@@ -29,7 +29,8 @@ class KaryawanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Karyawan::create($request->all());
+        return redirect()->route('karyawan.index')->with('success', 'karyawan berhasil ditambahkan');
     }
 
     /**
@@ -37,7 +38,7 @@ class KaryawanController extends Controller
      */
     public function show(Karyawan $karyawan)
     {
-        //
+        return view('karyawan.show', compact('karyawan'));
     }
 
     /**
@@ -45,7 +46,7 @@ class KaryawanController extends Controller
      */
     public function edit(Karyawan $karyawan)
     {
-        //
+        return view('karyawan.edit', compact('karyawan'));
     }
 
     /**
@@ -53,7 +54,8 @@ class KaryawanController extends Controller
      */
     public function update(Request $request, Karyawan $karyawan)
     {
-        //
+        $karyawan->update($request->all());
+        return redirect()->route('karyawan.index')->with('success', 'karyawan berhasil diperbarui');
     }
 
     /**
@@ -61,6 +63,7 @@ class KaryawanController extends Controller
      */
     public function destroy(Karyawan $karyawan)
     {
-        //
+        $karyawan->delete();
+        return redirect()->route('karyawan.index')->with('success', 'karyawan berhasil dihapus');
     }
 }

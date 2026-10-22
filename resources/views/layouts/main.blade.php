@@ -10,11 +10,13 @@
     <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
 <body>
-    @include('layouts.navbar')
+    <div class="app-shell d-flex">
+        @include('layouts.navbar')
 
-    <main class="container mt-4">
-        @yield('content')
-    </main>
+        <main class="container mt-4 flex-grow-1">
+            @yield('content')
+        </main>
+    </div>
     @include('layouts.footer')
     <script src="{{ asset('dist/js/bootstrap.bundle.min.js') }}"></script>
 </body>
