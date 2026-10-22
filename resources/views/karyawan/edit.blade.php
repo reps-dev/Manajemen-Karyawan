@@ -33,6 +33,10 @@
                     <input type="text" class="form-control" id="divisi" name="divisi" value="{{ $karyawan->divisi }}" required>
                 </div>
 
+                <div class="mb-3">
+                    <label for="keterangan" class="form-label">Keterangan</label>
+                    <textarea class="form-control" id="keterangan" name="keterangan" rows="3">{{ $karyawan->keterangan }}</textarea>
+
                 <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
             </form>
         </div>
